@@ -8,11 +8,11 @@ Please follow the instructions below and fill in the information requested when 
 
 ## Student Information
 
-|               | Information   |
-|:-------------:|:-------------:|
-| Student Name  | name-here     |
-| Student ID    | id-here       |
-| Student Email | email-here    |
+|               | Information             |
+|:-------------:|:-----------------------:|
+| Student Name  | Mark Kim                |
+| Student ID    | 918204214               |
+| Student Email | mkim22@mail.sfsu.edu    |
 
 
 
