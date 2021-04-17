@@ -1,8 +1,44 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  font-family: Garamond;
+  box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+body {
+  /* width: 90%; */
+  margin: auto;
+  background-color: #7494AA;
+  /* max-width: 800px; */
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#banner {
+  text-align: center;
+  padding: 25px;
+  background-color: #364b59;
+}
+
+#banner-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  padding: 7px;
+  background-color: #364b59;
+  color: white;
+  font-size:medium;
+}
+
+#email-link {
+  color: rgb(149, 181, 202);
+  padding-left: 1em;
 }

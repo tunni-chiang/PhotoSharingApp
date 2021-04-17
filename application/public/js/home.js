@@ -26,9 +26,9 @@ function fadeOut(event) {
 function createImgCard(data, containerDiv) {
     containerDiv.innerHTML = containerDiv.innerHTML +
         `<div class="grid-card" id="card_${data.id}" onclick="fadeOut(event)">
-    <img src="${data.url}" />
-    <h2 class="txt-ellipsis">${data.title}
-    </h2></div>`
+        <img src="${data.url}" />
+        <h2 class="txt-ellipsis">${data.title}
+        </h2></div>`
 }
 
 // Code used from lecture
