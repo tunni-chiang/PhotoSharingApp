@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="public/css/form.css">
+    <script defer src="public/js/formValidation.js"></script>
+    <title>User Registration</title>
+</head>
+
+<body>
+    <form class="grid-form box-shadow-dark" onsubmit="return validForm()">
+        <header class="grid-3cols background-lightgrey">
+            <h1>New User Registration</h1>
+        </header>
+        <label class="grid-label background-lightgrey" for="username">Username:</label>
+        <input class="grid-input" id="username" type="text" placeholder="Username" type="text" required="" onfocus="updateUserValidation()" onblur="closeUserValidation()"/>
+        <div id="usernameValidationBox"></div>
+        <label class="grid-label background-lightgrey" for="email">Email:</label>
+        <input class="grid-input" id="email" type="email" placeholder="Email" required="" onfocus="updateEmailValidation()" onblur="closeEmailValidation()"/>
+        <div id="emailValidationBox"></div>
+        <label class="grid-label background-lightgrey" for="passwd">Password:</label>
+        <input class="grid-input" id="passwd" type="text" placeholder="Password" required="" onfocus="updatePasswdValidation()" onblur="closePasswdValidation()"/>
+        <div id="passwdValidationBox"></div>
+        <label class="grid-label background-lightgrey" for="confirmpasswd">Confirm Password: </label>
+        <input class="grid-input" id="cpasswd" type="text" placeholder="Confirm Password" required="" onfocus="updateCPasswdValidation()" onblur="closeCPasswdValidation()"/>
+        <div id="cpasswdValidationBox"></div>
+        <div class="grid-3cols">
+            <input type="checkbox" required />
+            <label>I am 13 years of age or older.</label>
+        </div>
+        <div class="grid-3cols">
+            <input type="checkbox" required />
+            <label>I have have read and agree to the <a href="">Terms of Service</a> and <a href="">Privacy
+                    Rules</a> .</label>
+        </div>
+        <button class="grid-button" id="submitbutton" type="submit" required="">Submit</button>
+        <button class="grid-button" id="cancelbutton" type="cancel" required="">Cancel</button>
+    </form>
+</body>
+
+</html>
