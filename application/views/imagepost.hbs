@@ -1,7 +1,23 @@
-<div class="box-shadow-dark grid-post">
-    <h2 class="grid-3cols">Title:</h2>
-    <h3 class="grid-3cols">Author:</h3>
-    <h4 class="grid-3cols">Time of Post:</h4>
-    <h4 class="grid-3cols">Image:</h4>
-    <img class="grid-image" src="https://fakeimg.pl/600/" alt="This is a placeholder image." />
+<div class="grid-post">
+    <div class="flex-container-vertical">
+        <div>
+            <h2 class="margin-5px">Title:</h2>
+        </div>
+        <div>
+            <h3 class="margin-5px">Author:</h3>
+        </div>
+        <div>
+            <h4 class="margin-5px">Time of Post:</h4>
+        </div>
+        <div>
+            <h4 class="margin-5px">Image:</h4>
+        </div>
+        <div class="center"><img class="img-size-auto" src="https://fakeimg.pl/600/" alt="This is a placeholder image." /></div>
+    </div>
+    <div class="flex-container-vertical">
+        <div>
+            <input id="input-comment" type="text" placeholder="Comment">
+            <button id="submitbutton" type="submit">Post</button>
+        </div>
+    </div>
 </div>

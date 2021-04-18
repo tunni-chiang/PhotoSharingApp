@@ -15,6 +15,45 @@ header {
   margin-bottom: 1em;
 }
 
+img {
+  display:block;
+}
+
+.background-lightgrey {
+  border-radius: 3px;
+  /* border: 1px solid #dddddd; */
+  background-color: #dddddd;
+}
+
+.background-blackshadows {
+  border-radius: 3px;
+  /* border: 1px solid #dddddd; */
+  background-color: #d5c3c8;
+}
+
+.box-shadow-light {
+  border-radius: 10px;
+  border: 2px solid #bbbbbb;
+  box-shadow: 2px 2px 5px #cccccc;
+}
+
+.box-shadow-dark {
+  border-radius: 10px;
+  border: 2px solid #555555;
+  box-shadow: 2px 2px 5px #999999;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.img-size-250 {
+  max-width: 250px;
+  max-height: 250px;
+}
+
+.img-size-auto {
+  max-width: 100%;
+}
+
 #banner {
   text-align: center;
   padding: 25px;
