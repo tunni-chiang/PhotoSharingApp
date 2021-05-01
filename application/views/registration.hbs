@@ -1,22 +1,22 @@
-<form class="grid-form box-shadow-dark" onsubmit="return validForm()">
+<form class="grid-form box-shadow-dark" method="POST" action="/users/register" encType="application/x-www-form-urlencoded" onsubmit="return validForm()">
     <header class="grid-3cols background-blackshadows">
         <h1>New User Registration</h1>
     </header>
     <label class="grid-label background-blackshadows" for="username">Username:</label>
     <input class="grid-input" id="username" type="text" placeholder="Username" type="text" required=""
-        onfocus="updateUserValidation()" onblur="closeUserValidation()" />
+        onfocus="updateUserValidation()" onblur="closeUserValidation()" name="username" />
     <div id="usernameValidationBox"></div>
     <label class="grid-label background-blackshadows" for="email">Email:</label>
     <input class="grid-input" id="email" type="email" placeholder="Email" required="" onfocus="updateEmailValidation()"
-        onblur="closeEmailValidation()" />
+        onblur="closeEmailValidation()" name="email"/>
     <div id="emailValidationBox"></div>
     <label class="grid-label background-blackshadows" for="passwd">Password:</label>
     <input class="grid-input" id="passwd" type="text" placeholder="Password" required=""
-        onfocus="updatePasswdValidation()" onblur="closePasswdValidation()" />
+        onfocus="updatePasswdValidation()" onblur="closePasswdValidation()" name="password" />
     <div id="passwdValidationBox"></div>
     <label class="grid-label background-blackshadows" for="confirmpasswd">Confirm Password: </label>
     <input class="grid-input" id="cpasswd" type="text" placeholder="Confirm Password" required=""
-        onfocus="updateCPasswdValidation()" onblur="closeCPasswdValidation()" />
+        onfocus="updateCPasswdValidation()" onblur="closeCPasswdValidation()" name="cpassword" />
     <div id="cpasswdValidationBox"></div>
     <div class="grid-3cols">
         <input type="checkbox" required />

@@ -6,7 +6,7 @@ var handlebars = require('express-handlebars');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var dbRouter = require('./routes/dbtest');
+// var dbRouter = require('./routes/dbtest');
 const { Z_TEXT } = require('zlib');
 
 var app = express();
@@ -33,7 +33,7 @@ app.use(cookieParser());
 app.use("/public", express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/dbtest', dbRouter);
+// app.use('/dbtest', dbRouter);
 app.use('/users', usersRouter);
 
 app.use((err, req, res, next) => {
