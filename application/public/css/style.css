@@ -54,6 +54,29 @@ img {
   max-width: 100%;
 }
 
+#flash-message {
+  position: fixed;
+  left: 50%;
+  top: 11%;
+  transform: translate(-50%,0);
+}
+
+#flash-message div {
+  text-align: center;
+}
+
+#flash-error {
+  background-color: pink;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#flash-success {
+  background-color: rgb(164, 216, 199);
+  border-radius: 10px;
+  padding: 10px;
+}
+
 #banner {
   text-align: center;
   padding: 25px;

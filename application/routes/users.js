@@ -58,6 +58,7 @@ router.post('/register', (req, res, next) => {
     .then(([results, fields]) => {
       if (results && results.affectedRows) {
         successPrint("User.js --> User was created!!");
+        req.flash('success', 'User account has been created!');
         res.redirect('/login');
       } else {
         throw new UserError(
@@ -71,6 +72,7 @@ router.post('/register', (req, res, next) => {
       errorPrint("User could not be made", err);
       if (err instanceof UserError) {
         errorPrint(err.getMessage());
+        req.flash('error', err.getMessage);
         res.status(err.getStatus());
         res.redirect(err.getRedirectURL());
       } else {
@@ -105,6 +107,7 @@ router.post('/login', (req, res, next) => {
         req.session.username = username;
         req.session.userId = userID;
         res.locals.logged = true;
+        req.flash('success', 'You have been successfully logged in!');
         res.redirect('/');
       } else {
         throw new UserError("Invalid username and/or password!", "/login", 200);
@@ -113,6 +116,7 @@ router.post('/login', (req, res, next) => {
     .catch((err) => {
       if (err instanceof UserError) {
         errorPrint(err.getMessage());
+        req.flash('error', err.getMessage());
         res.status(err.getStatus());
         res.redirect(err.getRedirectURL());
       } else {

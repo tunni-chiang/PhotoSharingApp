@@ -17,6 +17,9 @@
 
 <body>
     {{> header}}
+    {{#if (emptyObject messages)}}
+    {{> flashmessage}}
+    {{/if}}
     {{{body}}}
     {{> footer}}
 
