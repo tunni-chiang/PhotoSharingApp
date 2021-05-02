@@ -72,7 +72,6 @@ app.use((req, res, next) => {
 })
 
 app.use('/', indexRouter);
-// app.use('/dbtest', dbRouter);
 app.use('/users', usersRouter);
 
 app.use((err, req, res, next) => {
