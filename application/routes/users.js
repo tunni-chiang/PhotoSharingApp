@@ -77,7 +77,7 @@ router.post('/register', (req, res, next) => {
         next(err);
       }
     });
-})
+});
 
 router.post('/login', (req, res, next) => {
   let username = req.body.username;
@@ -105,7 +105,7 @@ router.post('/login', (req, res, next) => {
         req.session.username = username;
         req.session.userId = userID;
         res.locals.logged = true;
-        res.render('index');
+        res.redirect('/');
       } else {
         throw new UserError("Invalid username and/or password!", "/login", 200);
       }
@@ -119,10 +119,19 @@ router.post('/login', (req, res, next) => {
         next(err);
       }
     })
-})
+});
 
-
-router.post('logout', (req, res, next) => {
-})
+router.post('/logout', (req, res, next) => {
+  req.session.destroy((err) => {
+    if(err){
+      errorPrint('Session could not be destroyed.');
+      next(err);
+    }else{
+      successPrint('Session was successfully destroyed.');
+      res.clearCookie('csid');
+      res.json({status: "OK", message:"User is logged out"});
+    }
+  });
+});
 
 module.exports = router;

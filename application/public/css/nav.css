@@ -43,7 +43,8 @@ nav > div:hover {
 }
 
 #post-button,
-#login-button {
+#login-button,
+#logout-button {
     font: 25px bold;
     color:black;
     text-decoration: none;
@@ -58,6 +59,7 @@ nav > div:hover {
 #post-button:hover,
 #login-button:hover,
 #logo:hover,
-#search-logo:hover {
+#search-logo:hover,
+#logout-button:hover {
     background-color: white;
 }
