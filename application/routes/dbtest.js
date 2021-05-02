@@ -1,7 +1,7 @@
 const express = require('express');
 const { routes } = require('../app');
 const router = express.Router();
-const db = require('../conf/database');
+const db = require('../config/database');
 
 router.get('/getAllUsers', (req, res, next) => {
     db.query('select * from users;', (err, results, fields) => {
@@ -62,6 +62,7 @@ router.post('/createUser', (req, res, next) => {
     
     // validate data, if bad send back response
     // res.redirect('/registration');
+    
     
     let baseSQL = 'INSERT INTO users (username, email, password, created) VALUES (?, ?, ?, now())';
     db.query(baseSQL, [username, email, password])

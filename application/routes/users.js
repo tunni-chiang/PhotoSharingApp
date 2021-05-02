@@ -1,12 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../conf/database');
+var db = require('../config/database');
 const { successPrint, errorPrint } = require('../helpers/debug/debugprinters');
+const UserError = require('../helpers/error/UserError');
+const PostError = require('../helpers/error/PostError');
+const serverValidation = require('../helpers/validation/serverValidation');
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
-});
+// router.get('/', function (req, res, next) {
+//   res.send('respond with a resource');
+// });
 
 router.post('/register', (req, res, next) => {
   let username = req.body.username;
@@ -17,6 +20,12 @@ router.post('/register', (req, res, next) => {
   /**
    * do server side validation not done in video
    */
+  // if (!serverValidation.usernameValid(username)) {
+  //   console.log('invalid username');
+  // } else {
+  //   console.log('valid username');
+  // }
+
 
   db.execute("SELECT * FROM users WHERE username=?", [username])
     .then(([results, fields]) => {
@@ -59,11 +68,45 @@ router.post('/register', (req, res, next) => {
       if(err instanceof UserError) {
         errorPrint(err.getMessage());
         res.status(err.getStatus());
-        res.redirect(err.getRetirectURL());
+        res.redirect(err.getRedirectURL());
       }else{
         next(err);
       }
     });
+})
+
+router.post('/login', (req, res, next) => {
+  let username = req.body.username;
+  let password = req.body.password;
+
+  /**
+   * do server validation
+   */
+
+  let baseSQL = "SELECT username, password FROM users WHERE username=? AND password=?;";
+  db.execute(baseSQL, [username, password])
+  .then(([results, fields]) => {
+    if(results && results.length == 1) {
+      successPrint(`User ${username} is logged in`);
+      res.locals.logged = true;
+      res.render('index');
+    }else{
+      throw new UserError("Invalid username and/or password!", "/login", 200);
+    }
+  })
+  .catch((err) => {
+    if(err instanceof UserError){
+      errorPrint(err.getMessage());
+      res.status(err.getStatus());
+      res.redirect(err.getRedirectURL());
+    }else{
+      next(err);
+    }
+  })
+})
+
+router.post('logout', (req, res, next) => {
+  
 })
 
 module.exports = router;

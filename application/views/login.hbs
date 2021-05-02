@@ -1,11 +1,11 @@
-<form class="grid-form box-shadow-dark">
+<form class="grid-form box-shadow-dark" method="POST" action="/users/login" enctype="application/x-www-form-urlencoded">
     <header class="grid-3cols background-blackshadows">
         <h1 class="background-blackshadows">Site Login</h1>
     </header>
     <label class="grid-label background-blackshadows" for="username">Username:</label>
-    <input class="grid-input" id="username" type="text" placeholder="Username" required />
+    <input class="grid-input" id="username" type="text" placeholder="Username" name="username" required />
     <label class="grid-label background-blackshadows" for="passwd">Password:</label>
-    <input class="grid-input" id="passwd" type="password" placeholder="Password" required />
+    <input class="grid-input" id="passwd" type="password" placeholder="Password" name="password" required />
     <button class="grid-button" id="submitbutton" type="submit">Submit</button>
     <button class="grid-button" id="cancelbutton" type="cancel">Cancel</button>
     <div class="grid-3cols">

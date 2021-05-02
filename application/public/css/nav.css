@@ -6,16 +6,15 @@ nav {
     padding:5px;
 }
 
-#login-button {
-    font: 25px bold;
-    color:black;
-    text-decoration: none;
-}
 
 nav > div {
     margin: 5px;
     background-color: #d5c3c8;
     border-radius: 5px;
+}
+
+nav > div:hover {
+    background-color: white;
 }
 
 .full-width-link a {
@@ -43,10 +42,22 @@ nav > div {
     margin: 5px;
 }
 
+#post-button,
 #login-button {
+    font: 25px bold;
+    color:black;
+    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 30px;
     margin: 5px;
+}
+
+#search-bar:hover,
+#post-button:hover,
+#login-button:hover,
+#logo:hover,
+#search-logo:hover {
+    background-color: white;
 }
