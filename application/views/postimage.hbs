@@ -1,18 +1,19 @@
-<form class="grid-form box-shadow-dark">
+<form class="grid-form box-shadow-dark" id="post-image" method="POST" enctype="multipart/form-data"
+    action='/posts/createPost'>
     <header class="grid-3cols background-blackshadows">
         <h1>Post Image</h1>
     </header>
     <label class="grid-label background-blackshadows" for="title">Title:</label>
-    <input class="grid-input" id="title" type="text" placeholder="Title" type="text" required />
+    <input class="grid-input" id="title" type="text" placeholder="Title" type="text" name="title" required />
     <label class="grid-label background-blackshadows" for="description">Description:</label>
-    <input class="grid-input" id="description" type="text" placeholder="Description" type="text" />
+    <input class="grid-input" id="description" type="text" placeholder="Description" type="text" name="description" />
     <label class="grid-label background-blackshadows" for="files">Upload Image:</label>
-    <input class="grid-input" id="files" type="file" multiple required />
+    <input class="grid-input" id="files" type="file" name="uploadImage" required />
     <div class="grid-3cols">
         <input type="checkbox" required />
         <label>I have read and agree to the <a href="">Acceptable Use Policy</a>
             for uploading images.</label>
     </div>
     <button class="grid-button" id="submitbutton" type="submit">Submit</button>
-    <button class="grid-button" id="cancelbutton" type="cancel">Cancel</button>
+    <button class="grid-button" id="cancelbutton" type="reset">Cancel</button>
 </form>
