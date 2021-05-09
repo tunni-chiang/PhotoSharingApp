@@ -6,6 +6,7 @@ var sharp = require('sharp');
 var multer = require('multer');
 var crypto = require('crypto');
 var PostError = require('../helpers/error/PostError');
+const { info } = require('console');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -64,5 +65,42 @@ router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
             }
         })
 });
+
+router.get('/search', (req, res, next) => {
+    let searchTerm = req.query.search;
+    if(!searchTerm){
+        res.send({
+            resultsStatus: "info",
+            message: "No search term given",
+            results: []
+        });
+    }else{
+        let baseSQL = "SELECT id, title, description, thumbnail, concat_ws(' ', title, description) AS haystack \
+        FROM posts \
+        HAVING haystack LIKE ?;";
+        let sqlReadySearchTerm = "%" + searchTerm + "%";
+        db.execute(baseSQL, [sqlReadySearchTerm])
+        .then(([results, fields]) => {
+            if(results && results.length) {
+                res.send({
+                    resultsStatus: "info",
+                    message: `${results.length} results found`,
+                    results: results
+                });
+            }else{
+                db.query('select id, title, description, thumbnail, created from posts \
+                order by created desc limit 8', [])
+                .then(([results, fields]) => {
+                    res.send({
+                        resultsStatus: "info",
+                        message: "No results were found for your search but here are the 8 most recent posts",
+                        results: results
+                    });
+                })
+            }
+        })
+        .catch((err) => next(err));
+    }
+})
 
 module.exports = router;
