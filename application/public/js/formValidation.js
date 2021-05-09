@@ -19,18 +19,22 @@ let formInputs = document.getElementsByClassName("grid-input");
 })
 
 function updateUserValidation() {
-    document.getElementById('usernameValidationBox').innerHTML = `<div class="grid-validationbox"><div id="beginsWithLetter">Begins with a letter</div><div id="has3chars">Has 3 or more characters</div></div>`
+    if (document.getElementById('usernameValidationBox')) {
+        document.getElementById('usernameValidationBox').innerHTML = `<div class="grid-validationbox"><div id="beginsWithLetter">Begins with a letter</div><div id="has3chars">Has 3 or more characters</div></div>`
+    }
     document.getElementById('username').oninput = function (event) {
-        if (beginsWithLetter(event.target.value)) {
-            document.getElementById('beginsWithLetter').setAttribute("class", "green-text");
-        } else {
-            document.getElementById('beginsWithLetter').setAttribute("class", "red-text");
-        }
+        if (document.getElementById('beginsWithLetter') && document.getElementById('has3chars')) {
+            if (beginsWithLetter(event.target.value)) {
+                document.getElementById('beginsWithLetter').setAttribute("class", "green-text");
+            } else {
+                document.getElementById('beginsWithLetter').setAttribute("class", "red-text");
+            }
 
-        if (event.target.value.length > 2) {
-            document.getElementById('has3chars').setAttribute("class", "green-text");
-        } else {
-            document.getElementById('has3chars').setAttribute("class", "red-text");
+            if (event.target.value.length > 2) {
+                document.getElementById('has3chars').setAttribute("class", "green-text");
+            } else {
+                document.getElementById('has3chars').setAttribute("class", "red-text");
+            }
         }
     }
 }
@@ -40,12 +44,16 @@ function closeUserValidation() {
 }
 
 function updateEmailValidation() {
-    document.getElementById('emailValidationBox').innerHTML = `<div class="grid-validationbox"><div id="valid-email">Email valid</div></div>`
+    if (document.getElementById('emailValidationBox')) {
+        document.getElementById('emailValidationBox').innerHTML = `<div class="grid-validationbox"><div id="valid-email">Email valid</div></div>`
+    }
     document.getElementById('email').oninput = function (event) {
-        if (validEmail(event.target.value)) {
-            document.getElementById('valid-email').setAttribute("class", "green-text");
-        } else {
-            document.getElementById('valid-email').setAttribute("class", "red-text");
+        if (document.getElementById('valid-email')) {
+            if (validEmail(event.target.value)) {
+                document.getElementById('valid-email').setAttribute("class", "green-text");
+            } else {
+                document.getElementById('valid-email').setAttribute("class", "red-text");
+            }
         }
     }
 }
@@ -55,36 +63,43 @@ function closeEmailValidation() {
 }
 
 function updatePasswdValidation() {
-    document.getElementById('passwdValidationBox').innerHTML =
-        `<div class="grid-validationbox">
+    if (document.getElementById('passwdValidationBox')) {
+        document.getElementById('passwdValidationBox').innerHTML =
+            `<div class="grid-validationbox">
         <div id="has8chars">Contains at least 8 characters</div>
         <div id="containsUpperCaseLetter">Contains at least 1 upper case letter</div>
         <div id="oneNumber">Contains at least 1 number</div>
         <div id="oneSpecial">Contains at least 1 special character ( /*-+!@#$^& )</div>
         </div>`
+    }
     document.getElementById('passwd').oninput = function (event) {
-        if (validPasswordLength(event.target.value)) {
-            document.getElementById('has8chars').setAttribute("class", "green-text");
-        } else {
-            document.getElementById('has8chars').setAttribute("class", "red-text");
-        }
+        if (document.getElementById('has8chars')
+            && document.getElementById('containsUpperCaseLetter')
+            && document.getElementById('oneNumber')
+            && document.getElementById('oneSpecial')) {
+            if (validPasswordLength(event.target.value)) {
+                document.getElementById('has8chars').setAttribute("class", "green-text");
+            } else {
+                document.getElementById('has8chars').setAttribute("class", "red-text");
+            }
 
-        if (containsUpperCaseLetter(event.target.value)) {
-            document.getElementById('containsUpperCaseLetter').setAttribute("class", "green-text");
-        } else {
-            document.getElementById('containsUpperCaseLetter').setAttribute("class", "red-text");
-        }
+            if (containsUpperCaseLetter(event.target.value)) {
+                document.getElementById('containsUpperCaseLetter').setAttribute("class", "green-text");
+            } else {
+                document.getElementById('containsUpperCaseLetter').setAttribute("class", "red-text");
+            }
 
-        if (containsNumber(event.target.value)) {
-            document.getElementById('oneNumber').setAttribute("class", "green-text");
-        } else {
-            document.getElementById('oneNumber').setAttribute("class", "red-text");
-        }
+            if (containsNumber(event.target.value)) {
+                document.getElementById('oneNumber').setAttribute("class", "green-text");
+            } else {
+                document.getElementById('oneNumber').setAttribute("class", "red-text");
+            }
 
-        if (containsSpecialChar(event.target.value)) {
-            document.getElementById('oneSpecial').setAttribute("class", "green-text");
-        } else {
-            document.getElementById('oneSpecial').setAttribute("class", "red-text");
+            if (containsSpecialChar(event.target.value)) {
+                document.getElementById('oneSpecial').setAttribute("class", "green-text");
+            } else {
+                document.getElementById('oneSpecial').setAttribute("class", "red-text");
+            }
         }
     }
 }

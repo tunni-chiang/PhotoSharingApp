@@ -1,5 +1,5 @@
-<form class="grid-form box-shadow-dark" id="post-image" method="POST" enctype="multipart/form-data"
-    action='/posts/createPost'>
+<form class="grid-form box-shadow-dark" id="post-image" method="POST" enctype="multipart/form-data">
+<!-- action='/posts/createPost' -->
     <header class="grid-3cols background-blackshadows">
         <h1>Post Image</h1>
     </header>
@@ -17,3 +17,25 @@
     <button class="grid-button" id="submitbutton" type="submit">Submit</button>
     <button class="grid-button" id="cancelbutton" type="reset">Cancel</button>
 </form>
+<script>
+    const _form = document.getElementById("post-image");
+    _form.onsubmit = function(event) {
+        event.preventDefault();
+        let _body = new FormData(_form);
+        
+        fetch('/posts/createPost', {
+            body: _body,
+            method: "POST"
+        })
+        .then((data) => {
+            console.log(data);
+            return data.json();
+        })
+        .then((dataAsObject) => {
+            console.log(dataAsObject);
+            alert(dataAsObject.message);
+            location.replace(dataAsObject.redirect);
+        })
+        .catch(err => console.log(err));
+    };
+</script>
