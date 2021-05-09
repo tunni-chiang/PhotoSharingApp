@@ -26,9 +26,12 @@ nav > div:hover {
     font-size: large;
     outline:none;
     border:none;
-    width: 98%;
+    border-radius: 5px;
+    width: 100%;
+    align-items: center;
     background-color: #d5c3c8;
-    margin: 5px;
+    margin: 0px;
+    padding: 5px;
     height: 30px;
 }
 
@@ -39,7 +42,8 @@ nav > div:hover {
     align-items: center;
     outline:none;
     height: 30px;
-    margin: 5px;
+    margin: 0;
+    padding: 5px;
 }
 
 #post-button,
@@ -52,7 +56,8 @@ nav > div:hover {
     justify-content: center;
     align-items: center;
     height: 30px;
-    margin: 5px;
+    padding: 5px;
+    margin: 0;
 }
 
 #search-text:hover,

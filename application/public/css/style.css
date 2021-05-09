@@ -105,3 +105,20 @@ img {
   color: rgb(149, 181, 202);
   padding-left: 1em;
 }
+
+#post-info,
+#post-comments {
+  margin: 5px;
+  border-radius: 3px;
+  border: 1px solid #000000;
+  background-color: #dddddd;
+}
+
+#post-info-title,
+#post-comments-title {
+  background-color: #364b59;
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px;
+}

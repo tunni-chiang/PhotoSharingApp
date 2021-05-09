@@ -1,23 +1,21 @@
 <div class="grid-post">
     <div class="flex-container-vertical">
-        <div>
-            <h2 class="margin-5px">{{currentPost.title}}</h2>
-        </div>
-        <div>
-            <h3 class="margin-5px">{{currentPost.username}}:</h3>
-        </div>
-        <div>
-            <h4 class="margin-5px">{{currentPost.created}}</h4>
-        </div>
-        <div>
-            <h4 class="margin-5px">{{currentPost.description}}</h4>
-        </div>
-        <div class="center"><img class="img-size-auto" src="/{{currentPost.photopath}}" alt="This is a placeholder image." /></div>
+        <div class="center"><img class="img-size-auto" src="/{{currentPost.photopath}}"
+                alt="This is a placeholder image." /></div>
     </div>
     <div class="flex-container-vertical">
-        <div>
-            <input id="input-comment" type="text" placeholder="Comment">
-            <button id="submitbutton" type="submit">Post</button>
+        <div id="post-info">
+            <h2 class="margin-5px" id="post-info-title">{{currentPost.title}}</h2>
+            <h3 class="margin-5px">Posted by: {{currentPost.username}}:</h3>
+            <h4 class="margin-5px">Created: {{currentPost.created}}</h4>
+            <h4 class="margin-5px">Description: {{currentPost.description}}</h4>
+        </div>
+        <div id="post-comments">
+            <h2 class="margin-5px" id="post-comments-title">Comments</h2>
+            <div class="flex-container-horizontal">
+                <input id="input-comment" style="flex: auto" type="text" placeholder="Comment">
+                <button id="submitbutton" type="submit">Post</button>
+            </div>
         </div>
     </div>
 </div>
