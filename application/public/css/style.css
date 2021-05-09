@@ -57,8 +57,9 @@ img {
 #flash-message {
   position: fixed;
   left: 50%;
-  top: 11%;
+  top: 6%;
   transform: translate(-50%,0);
+  z-index: 9999;
 }
 
 #flash-message div {

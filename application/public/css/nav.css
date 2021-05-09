@@ -22,7 +22,7 @@ nav > div:hover {
     height: 100%;
 }
 
-#search-bar {
+#search-text {
     font-size: large;
     outline:none;
     border:none;
@@ -33,7 +33,7 @@ nav > div:hover {
 }
 
 #logo,
-#search-logo {
+#search-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,11 +55,11 @@ nav > div:hover {
     margin: 5px;
 }
 
-#search-bar:hover,
+#search-text:hover,
 #post-button:hover,
 #login-button:hover,
 #logo:hover,
-#search-logo:hover,
+#search-button:hover,
 #logout-button:hover {
     background-color: white;
 }
