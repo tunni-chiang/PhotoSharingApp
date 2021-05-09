@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var isLoggedIn = require('../middleware/routeprotectors').userIsLoggedIn;
-var getRecentPosts = require('../middleware/postsmiddleware').getRecentPosts;
+const {getRecentPosts, getPostById} = require('../middleware/postsmiddleware');
 var db = require('../config/database');
 
 /* GET home page. */
@@ -32,24 +32,8 @@ router.get('/postimage', (req, res, next) => {
   res.render('postimage', { title: "Post an Image" });
 });
 
-router.get('/post/:id(\\d+)', (req, res, next) => {
-  let baseSQL = "select u.username, p.title, p.description, p.photopath, p.created \
-  from users u \
-  join posts p \
-  on u.id=fk_userid \
-  where p.id=3;";
-
-  let postId = req.params.id; // variable for server side validation
-  db.execute(baseSQL, [postId])
-    .then(([results, fields]) => {
-      if (results && results.length) {
-        let post = results[0];
-        res.render('imagepost', { currentPost: post });
-      } else {
-        req.flash('error', 'This is not the post you are looking for!');
-        res.redirect('/');
-      }
-    })
+router.get('/post/:id(\\d+)', getPostById, (req, res, next) => {
+  res.render('imagepost', { title: `Post ${req.params.id}` });
 });
 
 module.exports = router;
