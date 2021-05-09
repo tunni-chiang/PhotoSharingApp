@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var isLoggedIn = require('../middleware/routeprotectors').userIsLoggedIn;
+var getRecentPosts = require('../middleware/postsmiddleware').getRecentPosts;
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', getRecentPosts, function (req, res, next) {
   // next(new Error('test'));
-  res.render('index', { name: "Mark Kim" });
+  res.render('index', { title: "Mark's photo app" });
 });
 
 router.get('/login', (req, res, next) => {
