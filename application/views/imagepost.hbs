@@ -1,18 +1,18 @@
 <div class="grid-post">
     <div class="flex-container-vertical">
         <div>
-            <h2 class="margin-5px">Title:</h2>
+            <h2 class="margin-5px">{{currentPost.title}}</h2>
         </div>
         <div>
-            <h3 class="margin-5px">Author:</h3>
+            <h3 class="margin-5px">{{currentPost.username}}:</h3>
         </div>
         <div>
-            <h4 class="margin-5px">Time of Post:</h4>
+            <h4 class="margin-5px">{{currentPost.created}}</h4>
         </div>
         <div>
-            <h4 class="margin-5px">Image:</h4>
+            <h4 class="margin-5px">{{currentPost.description}}</h4>
         </div>
-        <div class="center"><img class="img-size-auto" src="https://fakeimg.pl/600/" alt="This is a placeholder image." /></div>
+        <div class="center"><img class="img-size-auto" src="/{{currentPost.photopath}}" alt="This is a placeholder image." /></div>
     </div>
     <div class="flex-container-vertical">
         <div>
