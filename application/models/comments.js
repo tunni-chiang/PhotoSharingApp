@@ -12,7 +12,7 @@ CommentModel.create = (userId, postId, comment) => {
             return Promise.resolve(-1);
         }
     })
-    .catch((err) => Promise.relect(err));
+    .catch((err) => Promise.reject(err));
 }
 
 CommentModel.getCommentsForPost = (postId) => {
