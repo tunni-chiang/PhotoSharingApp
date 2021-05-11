@@ -87,8 +87,47 @@
     margin: 5px;
 }
 
-#comments-box {
+#comments-display {
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    scroll-behavior: smooth;
+    border: 1px solid #cccccc;
+    border-radius: .35rem;
+}
 
+div[id^=message-] {
+    display: grid;
+    grid-template-rows: 0.3fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.2 em;
+    padding: 0.25rem;
+    margin: 0.2rem;
+    font-size: 1rem;
+    border: 0.0625rem solid #dddddd;
+    border-radius: 0.25rem;
+    grid-template-areas:
+    "author created"
+    "comment comment";
+}
+
+.author-text {
+    grid-area: author;
+    justify-self: start;
+    color: blue;
+}
+
+.comment-text {
+    grid-area: comment;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 45px;
+    min-height: 45px;
+}
+
+.date-posted {
+    grid-area: created;
+    justify-self: right;
 }
 
 #input-comment {
