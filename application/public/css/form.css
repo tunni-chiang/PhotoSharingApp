@@ -102,12 +102,13 @@
     margin-top: -3px;
     margin-left: 5px;
     margin-right: 5px;
-    margin-bottom: -3px;
+    margin-bottom: 0px;
     border-radius: 3px;
     border: 1px solid #000000;
     background-color: #dddddd;
-    max-height: 100%;
-    overflow: auto;
+    max-height: 65vh;
+    min-height: 40vh;
+    overflow-y: auto;
 }
 
 #comments-display {
@@ -146,6 +147,7 @@
     margin-bottom: 0;
     margin-top: 0;
     padding: 5px;
+    max-height: 2.5rem;
   }
 
 div[id^=message-] {
@@ -185,13 +187,14 @@ div[id^=message-] {
 #input-comment-container {
     display:grid;
     border-radius: 3px;
-    margin-top: -7px;
+    margin-top: -5px;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
     grid-template-columns: 1fr 60px;
     background-color: #364b59;
     padding: 5px;
+    max-height: 2.5rem;
 }
 
 #input-comment {
