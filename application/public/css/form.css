@@ -95,7 +95,19 @@
     grid-template-areas:
     "postinfo"
     "messages";
-    max-height: 85vh;
+    max-height: 80vh;
+}
+
+#post-comments {
+    margin-top: -3px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: -3px;
+    border-radius: 3px;
+    border: 1px solid #000000;
+    background-color: #dddddd;
+    max-height: 100%;
+    overflow: auto;
 }
 
 #comments-display {
@@ -115,6 +127,26 @@
     border: 1px solid #000000;
     background-color: #dddddd;
 }
+
+#post-info-title {
+  background-color: #364b59;
+  color: white;
+  font-weight: bold;
+  margin: 0px;
+  padding: 5px;
+}
+
+#post-comments-title {
+    background-color: #364b59;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 5px;
+  }
 
 div[id^=message-] {
     display: grid;
@@ -152,7 +184,14 @@ div[id^=message-] {
 
 #input-comment-container {
     display:grid;
+    border-radius: 3px;
+    margin-top: -7px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
     grid-template-columns: 1fr 60px;
+    background-color: #364b59;
+    padding: 5px;
 }
 
 #input-comment {

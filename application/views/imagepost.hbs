@@ -10,8 +10,8 @@
             <h4 class="margin-5px">Created: {{currentPost.created}}</h4>
             <h4 class="margin-5px">Description: {{currentPost.description}}</h4>
         </div>
+        <h2 id="post-comments-title">Comments</h2>
         <div id="post-comments">
-            <h2 class="margin-5px" id="post-comments-title">Comments</h2>
             <div id="comments-display">
                 {{#each currentPost.comments}}
                 {{> comment this}}
@@ -24,3 +24,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('span[class=date-posted]').forEach((postedDate) => {
+            postedDate.textContent = new Date(postedDate.textContent).toLocaleString();
+        });
+    });
+</script>
