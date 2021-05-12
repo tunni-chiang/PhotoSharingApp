@@ -106,12 +106,13 @@ img {
   padding-left: 1em;
 }
 
-#post-info,
 #post-comments {
   margin: 5px;
   border-radius: 3px;
   border: 1px solid #000000;
   background-color: #dddddd;
+  max-height: 100%;
+  overflow: scroll;
 }
 
 #post-info-title,

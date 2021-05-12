@@ -87,13 +87,33 @@
     margin: 5px;
 }
 
+#comments-container {
+    display: grid;
+    grid-template-rows: 150px auto;
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+    grid-template-areas:
+    "postinfo"
+    "messages";
+    max-height: 85vh;
+}
+
 #comments-display {
+    grid-area: messages;
     overflow-y: auto;
     display: flex;
     flex-flow: column-reverse nowrap;
     scroll-behavior: smooth;
     border: 1px solid #cccccc;
     border-radius: .35rem;
+}
+
+#post-info {
+    grid-area: postinfo;
+    margin: 5px;
+    border-radius: 3px;
+    border: 1px solid #000000;
+    background-color: #dddddd;
 }
 
 div[id^=message-] {
@@ -104,7 +124,7 @@ div[id^=message-] {
     padding: 0.25rem;
     margin: 0.2rem;
     font-size: 1rem;
-    border: 0.0625rem solid #dddddd;
+    border: 0.0625rem solid #ffffff;
     border-radius: 0.25rem;
     grid-template-areas:
     "author created"
@@ -130,15 +150,21 @@ div[id^=message-] {
     justify-self: right;
 }
 
+#input-comment-container {
+    display:grid;
+    grid-template-columns: 1fr 60px;
+}
+
 #input-comment {
     font-size: large;
     outline:none;
     border:none;
     margin-right: 3px;
-    margin-top: auto;
-    margin-left: auto;
-    margin-bottom: auto;
+    margin-left: 10px;
+    margin-top: 2px;
+    margin-bottom: 3px;
     height: 25px;
+    width: 95%;
 }
 
 #usernameValidationBox,
