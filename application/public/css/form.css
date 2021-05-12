@@ -44,8 +44,7 @@
     grid-column-end: 2;
 }
 
-.grid-postpage,
-.grid-validationbox {
+.grid-postpage, .grid-validationbox {
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.5rem;
@@ -92,9 +91,7 @@
     grid-template-rows: 150px auto;
     grid-template-columns: 1fr;
     gap: 0.2rem;
-    grid-template-areas:
-    "postinfo"
-    "messages";
+    grid-template-areas: "postinfo" "messages";
     max-height: 80vh;
 }
 
@@ -130,11 +127,11 @@
 }
 
 #post-info-title {
-  background-color: #364b59;
-  color: white;
-  font-weight: bold;
-  margin: 0px;
-  padding: 5px;
+    background-color: #364b59;
+    color: white;
+    font-weight: bold;
+    margin: 0px;
+    padding: 5px;
 }
 
 #post-comments-title {
@@ -148,7 +145,7 @@
     margin-top: 0;
     padding: 5px;
     max-height: 2.5rem;
-  }
+}
 
 div[id^=message-] {
     display: grid;
@@ -160,9 +157,7 @@ div[id^=message-] {
     font-size: 1rem;
     border: 0.0625rem solid #ffffff;
     border-radius: 0.25rem;
-    grid-template-areas:
-    "author created"
-    "comment comment";
+    grid-template-areas: "author created" "comment comment";
 }
 
 .author-text {
@@ -185,7 +180,7 @@ div[id^=message-] {
 }
 
 #input-comment-container {
-    display:grid;
+    display: grid;
     border-radius: 3px;
     margin-top: -5px;
     margin-left: 5px;
@@ -199,8 +194,8 @@ div[id^=message-] {
 
 #input-comment {
     font-size: large;
-    outline:none;
-    border:none;
+    outline: none;
+    border: none;
     margin-right: 3px;
     margin-left: 10px;
     margin-top: 2px;
@@ -209,16 +204,13 @@ div[id^=message-] {
     width: 95%;
 }
 
-#usernameValidationBox,
-#emailValidationBox,
-#passwdValidationBox,
-#cpasswdValidationBox {
+#usernameValidationBox, #emailValidationBox, #passwdValidationBox, #cpasswdValidationBox {
     grid-column-start: 2;
     grid-column-end: 4;
 }
 
 #submitbutton {
-    font-size:2ch;
+    font-size: 2ch;
     border-radius: 5px;
     height: 2em;
     border: 2px outset rgb(199, 255, 199);
@@ -234,7 +226,7 @@ div[id^=message-] {
 }
 
 #cancelbutton {
-    font-size:2ch;
+    font-size: 2ch;
     border-radius: 5px;
     height: 2em;
     border: 2px outset rgb(255, 184, 156);
@@ -250,27 +242,18 @@ div[id^=message-] {
         grid-template-columns: 1fr;
         gap: 0.1em;
     }
-
     .grid-post {
         display: grid;
         grid-template-columns: 1fr;
         gap: 0.5rem;
     }
-
     .grid-label {
         text-align: center;
         padding: 0.2em;
         grid-column-start: 1;
         grid-column-end: 2;
     }
-    
-    .grid-input,
-    .grid-3cols,
-    .grid-image,
-    #usernameValidationBox,
-    #emailValidationBox,
-    #passwdValidationBox,
-    #cpasswdValidationBox {
+    .grid-input, .grid-3cols, .grid-image, #usernameValidationBox, #emailValidationBox, #passwdValidationBox, #cpasswdValidationBox {
         padding: 0.2em;
         grid-column-start: 1;
         grid-column-end: 2;

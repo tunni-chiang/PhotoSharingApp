@@ -14,7 +14,7 @@ header {
 }
 
 img {
-  display:block;
+  display: block;
 }
 
 .background-lightgrey {
@@ -54,7 +54,7 @@ img {
   position: fixed;
   left: 50%;
   top: 6%;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
   z-index: 9999;
 }
 
@@ -94,7 +94,7 @@ img {
   padding: 7px;
   background-color: #364b59;
   color: white;
-  font-size:medium;
+  font-size: medium;
 }
 
 #email-link {

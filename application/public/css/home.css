@@ -17,6 +17,7 @@
 .grid-card.fade {
     opacity: 0;
 }
+
 .grid-card.nofade {
     opacity: 1;
 }
@@ -26,9 +27,3 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-/* .txt-ellipsis:hover {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
-} */

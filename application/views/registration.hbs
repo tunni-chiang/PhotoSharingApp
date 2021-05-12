@@ -1,4 +1,5 @@
-<form class="grid-form box-shadow-dark" method="POST" action="/users/register" encType="application/x-www-form-urlencoded">
+<form class="grid-form box-shadow-dark" method="POST" action="/users/register"
+    encType="application/x-www-form-urlencoded">
     <header class="grid-3cols background-blackshadows">
         <h1>New User Registration</h1>
     </header>
@@ -8,7 +9,7 @@
     <div id="usernameValidationBox"></div>
     <label class="grid-label background-blackshadows" for="email">Email:</label>
     <input class="grid-input" id="email" type="email" placeholder="Email" required="" onfocus="updateEmailValidation()"
-        onblur="closeEmailValidation()" name="email"/>
+        onblur="closeEmailValidation()" name="email" />
     <div id="emailValidationBox"></div>
     <label class="grid-label background-blackshadows" for="passwd">Password:</label>
     <input class="grid-input" id="passwd" type="text" placeholder="Password" required=""

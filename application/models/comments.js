@@ -5,14 +5,14 @@ const CommentModel = {};
 CommentModel.create = (userId, postId, comment) => {
     let baseSQL = `INSERT INTO comments (comment, fk_postid, fk_authorid) VALUES (?,?,?);`;
     return db.query(baseSQL, [comment, postId, userId])
-    .then(([results, fields]) => {
-        if(results && results.affectedRows) {
-            return Promise.resolve(results.insertId);
-        }else{
-            return Promise.resolve(-1);
-        }
-    })
-    .catch((err) => Promise.reject(err));
+        .then(([results, fields]) => {
+            if (results && results.affectedRows) {
+                return Promise.resolve(results.insertId);
+            } else {
+                return Promise.resolve(-1);
+            }
+        })
+        .catch((err) => Promise.reject(err));
 }
 
 CommentModel.getCommentsForPost = (postId) => {
@@ -23,10 +23,10 @@ CommentModel.getCommentsForPost = (postId) => {
     WHERE c.fk_postid=?
     ORDER BY c.created DESC`;
     return db.query(baseSQL, [postId])
-    .then(([results, fields]) => {
-        return Promise.resolve(results);
-    })
-    .catch((err) => Promise.reject(err));
+        .then(([results, fields]) => {
+            return Promise.resolve(results);
+        })
+        .catch((err) => Promise.reject(err));
 };
 
 module.exports = CommentModel;

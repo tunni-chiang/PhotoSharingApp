@@ -3,17 +3,16 @@ nav {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    padding:5px;
+    padding: 5px;
 }
 
-
-nav > div {
+nav>div {
     margin: 5px;
     background-color: #d5c3c8;
     border-radius: 5px;
 }
 
-nav > div:hover {
+nav>div:hover {
     background-color: white;
 }
 
@@ -24,8 +23,8 @@ nav > div:hover {
 
 #search-text {
     font-size: large;
-    outline:none;
-    border:none;
+    outline: none;
+    border: none;
     border-radius: 5px;
     width: 100%;
     align-items: center;
@@ -35,22 +34,19 @@ nav > div:hover {
     height: 30px;
 }
 
-#logo,
-#search-button {
+#logo, #search-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    outline:none;
+    outline: none;
     height: 30px;
     margin: 0;
     padding: 5px;
 }
 
-#post-button,
-#login-button,
-#logout-button {
+#post-button, #login-button, #logout-button {
     font: 25px bold;
-    color:black;
+    color: black;
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -60,11 +56,6 @@ nav > div:hover {
     margin: 0;
 }
 
-#search-text:hover,
-#post-button:hover,
-#login-button:hover,
-#logo:hover,
-#search-button:hover,
-#logout-button:hover {
+#search-text:hover, #post-button:hover, #login-button:hover, #logo:hover, #search-button:hover, #logout-button:hover {
     background-color: white;
 }

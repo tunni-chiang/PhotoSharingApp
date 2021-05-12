@@ -66,7 +66,7 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    if(req.session.username) {
+    if (req.session.username) {
         res.locals.logged = true;
     }
     next();
