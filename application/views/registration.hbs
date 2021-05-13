@@ -4,19 +4,19 @@
         <h1>New User Registration</h1>
     </header>
     <label class="grid-label background-blackshadows" for="username">Username:</label>
-    <input class="grid-input" id="username" type="text" placeholder="Username" type="text" required=""
+    <input class="grid-input" id="username" type="text" placeholder="Username" type="text"
         onfocus="updateUserValidation()" onblur="closeUserValidation()" name="username" />
     <div id="usernameValidationBox"></div>
     <label class="grid-label background-blackshadows" for="email">Email:</label>
-    <input class="grid-input" id="email" type="email" placeholder="Email" required="" onfocus="updateEmailValidation()"
+    <input class="grid-input" id="email" type="email" placeholder="Email" onfocus="updateEmailValidation()"
         onblur="closeEmailValidation()" name="email" />
     <div id="emailValidationBox"></div>
     <label class="grid-label background-blackshadows" for="passwd">Password:</label>
-    <input class="grid-input" id="passwd" type="text" placeholder="Password" required=""
+    <input class="grid-input" id="passwd" type="text" placeholder="Password"
         onfocus="updatePasswdValidation()" onblur="closePasswdValidation()" name="password" />
     <div id="passwdValidationBox"></div>
     <label class="grid-label background-blackshadows" for="confirmpasswd">Confirm Password: </label>
-    <input class="grid-input" id="cpasswd" type="text" placeholder="Confirm Password" required=""
+    <input class="grid-input" id="cpasswd" type="text" placeholder="Confirm Password"
         onfocus="updateCPasswdValidation()" onblur="closeCPasswdValidation()" name="cpassword" />
     <div id="cpasswdValidationBox"></div>
     <div class="grid-3cols">
@@ -28,6 +28,6 @@
         <label>I have have read and agree to the <a href="">Terms of Service</a> and <a href="">Privacy
                 Rules</a> .</label>
     </div>
-    <button id="submitbutton" type="submit" required="">Submit</button>
-    <button id="cancelbutton" type="reset" required="">Cancel</button>
+    <button id="submitbutton" type="submit">Submit</button>
+    <button id="cancelbutton" type="reset">Cancel</button>
 </form>

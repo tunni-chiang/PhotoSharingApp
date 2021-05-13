@@ -6,6 +6,7 @@ var multer = require('multer');
 var crypto = require('crypto');
 var PostModel = require('../models/Posts');
 var PostError = require('../helpers/error/PostError');
+const validator = require('../helpers/validation/validator');
 const { info } = require('console');
 
 var storage = multer.diskStorage({
@@ -29,17 +30,20 @@ router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
     let description = req.body.description;
     let fk_userId = req.session.userId;
 
-    /** 
-     * do server validation
-     * if any values used for the insert statement are
-     * undefined, mysql.query will fail with the following
-     * error:
-     * BIND parameters cannot be defined
-     */
-
-    sharp(fileUploaded)
-        .resize(200)
-        .toFile(destinationOfThumbnail)
+    validator.postNoNulls(fileUploaded, fileAsThumbnail, destinationOfThumbnail, title, description, fk_userId)
+        .then((noNulls) => {
+            if (!noNulls) {
+                throw new PostError(
+                    "Post Failed: A data field is null",
+                    "/postimage",
+                    200
+                );
+            } else {
+                return sharp(fileUploaded)
+                    .resize(200)
+                    .toFile(destinationOfThumbnail)
+            }
+        })
         .then(() => {
             return PostModel.create(
                 title,
@@ -53,10 +57,8 @@ router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
             if (postWasCreated) {
                 req.flash('success', "Your post was created successfully!");
                 res.json({ status: "OK", message: "Post was created", redirect: "/" });
-                //res.redirect('/');
             } else {
                 res.json({ status: "OK", message: "Post was not created", redirect: "/postimage" });
-                //throw new PostError('Post could not be created!', 'postImage', 200);
             }
         })
         .catch((err) => {
@@ -64,7 +66,9 @@ router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
                 errorPrint(err.getMessage());
                 req.flash('error', err.getMessage());
                 res.status(err.getStatus());
-                res.redirect(err.getRedirectURL());
+                req.session.save((err) => {
+                    res.redirect(err.getRedirectURL());
+                })
             } else {
                 next(err);
             }
