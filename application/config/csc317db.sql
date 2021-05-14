@@ -105,4 +105,8 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2021-05-14 11:52:37
+=======
+-- Dump completed on 2021-05-14 15:40:44
+>>>>>>> master
