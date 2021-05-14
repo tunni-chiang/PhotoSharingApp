@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "proj-init": "cd application && npm i express && node ./bin/init_db.js",
     "start": "node ./bin/www"
   },
   "dependencies": {
