@@ -151,7 +151,9 @@ router.post('/login', (req, res, next) => {
         errorPrint(errorMessage);
         req.flash('error', errorMessage);
         res.status(err.getStatus());
-        res.redirect(err.getRedirectURL());
+        req.session.save((err) => {
+          res.redirect(err.getRedirectURL());
+        })
       } else {
         next(err);
       }

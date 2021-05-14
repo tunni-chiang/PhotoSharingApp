@@ -23,7 +23,7 @@ var storage = multer.diskStorage({
 var uploader = multer({ storage: storage });
 
 router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
-    let fileUploaded = req.file.path;
+    let fileUploaded = null;// req.file.path;
     let fileAsThumbnail = `thumbnail-${req.file.filename}`;
     let destinationOfThumbnail = req.file.destination + "/" + fileAsThumbnail;
     let title = req.body.title;
@@ -41,7 +41,7 @@ router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
             } else {
                 return sharp(fileUploaded)
                     .resize(200)
-                    .toFile(destinationOfThumbnail)
+                    .toFile(destinationOfThumbnail);
             }
         })
         .then(() => {
@@ -68,7 +68,7 @@ router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
                 res.status(err.getStatus());
                 req.session.save((err) => {
                     res.redirect(err.getRedirectURL());
-                })
+                });
             } else {
                 next(err);
             }

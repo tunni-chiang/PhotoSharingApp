@@ -19,22 +19,19 @@ let formInputs = document.getElementsByClassName("grid-input");
 })
 
 function updateUserValidation() {
-    if (document.getElementById('usernameValidationBox')) {
-        document.getElementById('usernameValidationBox').innerHTML = `<div class="grid-validationbox"><div id="beginsWithLetter">Begins with a letter</div><div id="has3chars">Has 3 or more characters</div></div>`
-    }
-    document.getElementById('username').oninput = function (event) {
-        if (document.getElementById('beginsWithLetter') && document.getElementById('has3chars')) {
-            if (beginsWithLetter(event.target.value)) {
-                document.getElementById('beginsWithLetter').setAttribute("class", "green-text");
-            } else {
-                document.getElementById('beginsWithLetter').setAttribute("class", "red-text");
-            }
+    document.getElementById('usernameValidationBox').innerHTML = `<div class="grid-validationbox"><div id="beginsWithLetter">Begins with a letter</div><div id="has3chars">Has 3 or more characters</div></div>`
+    let username = document.getElementById('username').value;
+    if (document.getElementById('beginsWithLetter') && document.getElementById('has3chars')) {
+        if (beginsWithLetter(username)) {
+            document.getElementById('beginsWithLetter').setAttribute("class", "green-text");
+        } else {
+            document.getElementById('beginsWithLetter').setAttribute("class", "red-text");
+        }
 
-            if (event.target.value.length > 2) {
-                document.getElementById('has3chars').setAttribute("class", "green-text");
-            } else {
-                document.getElementById('has3chars').setAttribute("class", "red-text");
-            }
+        if (username.length > 2) {
+            document.getElementById('has3chars').setAttribute("class", "green-text");
+        } else {
+            document.getElementById('has3chars').setAttribute("class", "red-text");
         }
     }
 }
@@ -44,18 +41,16 @@ function closeUserValidation() {
 }
 
 function updateEmailValidation() {
-    if (document.getElementById('emailValidationBox')) {
-        document.getElementById('emailValidationBox').innerHTML = `<div class="grid-validationbox"><div id="valid-email">Email valid</div></div>`
-    }
-    document.getElementById('email').oninput = function (event) {
-        if (document.getElementById('valid-email')) {
-            if (validEmail(event.target.value)) {
-                document.getElementById('valid-email').setAttribute("class", "green-text");
-            } else {
-                document.getElementById('valid-email').setAttribute("class", "red-text");
-            }
+    document.getElementById('emailValidationBox').innerHTML = `<div class="grid-validationbox"><div id="valid-email">Email valid</div></div>`
+    let email = document.getElementById('email').value;
+    if (document.getElementById('valid-email')) {
+        if (validEmail(email)) {
+            document.getElementById('valid-email').setAttribute("class", "green-text");
+        } else {
+            document.getElementById('valid-email').setAttribute("class", "red-text");
         }
     }
+
 }
 
 function closeEmailValidation() {
@@ -63,43 +58,40 @@ function closeEmailValidation() {
 }
 
 function updatePasswdValidation() {
-    if (document.getElementById('passwdValidationBox')) {
-        document.getElementById('passwdValidationBox').innerHTML =
-            `<div class="grid-validationbox">
+    document.getElementById('passwdValidationBox').innerHTML =
+        `<div class="grid-validationbox">
         <div id="has8chars">Contains at least 8 characters</div>
         <div id="containsUpperCaseLetter">Contains at least 1 upper case letter</div>
         <div id="oneNumber">Contains at least 1 number</div>
         <div id="oneSpecial">Contains at least 1 special character ( /*-+!@#$^& )</div>
         </div>`
-    }
-    document.getElementById('passwd').oninput = function (event) {
-        if (document.getElementById('has8chars')
-            && document.getElementById('containsUpperCaseLetter')
-            && document.getElementById('oneNumber')
-            && document.getElementById('oneSpecial')) {
-            if (validPasswordLength(event.target.value)) {
-                document.getElementById('has8chars').setAttribute("class", "green-text");
-            } else {
-                document.getElementById('has8chars').setAttribute("class", "red-text");
-            }
+    let password = document.getElementById('passwd').value;
+    if (document.getElementById('has8chars')
+        && document.getElementById('containsUpperCaseLetter')
+        && document.getElementById('oneNumber')
+        && document.getElementById('oneSpecial')) {
+        if (validPasswordLength(password)) {
+            document.getElementById('has8chars').setAttribute("class", "green-text");
+        } else {
+            document.getElementById('has8chars').setAttribute("class", "red-text");
+        }
 
-            if (containsUpperCaseLetter(event.target.value)) {
-                document.getElementById('containsUpperCaseLetter').setAttribute("class", "green-text");
-            } else {
-                document.getElementById('containsUpperCaseLetter').setAttribute("class", "red-text");
-            }
+        if (containsUpperCaseLetter(password)) {
+            document.getElementById('containsUpperCaseLetter').setAttribute("class", "green-text");
+        } else {
+            document.getElementById('containsUpperCaseLetter').setAttribute("class", "red-text");
+        }
 
-            if (containsNumber(event.target.value)) {
-                document.getElementById('oneNumber').setAttribute("class", "green-text");
-            } else {
-                document.getElementById('oneNumber').setAttribute("class", "red-text");
-            }
+        if (containsNumber(password)) {
+            document.getElementById('oneNumber').setAttribute("class", "green-text");
+        } else {
+            document.getElementById('oneNumber').setAttribute("class", "red-text");
+        }
 
-            if (containsSpecialChar(event.target.value)) {
-                document.getElementById('oneSpecial').setAttribute("class", "green-text");
-            } else {
-                document.getElementById('oneSpecial').setAttribute("class", "red-text");
-            }
+        if (containsSpecialChar(password)) {
+            document.getElementById('oneSpecial').setAttribute("class", "green-text");
+        } else {
+            document.getElementById('oneSpecial').setAttribute("class", "red-text");
         }
     }
 }
@@ -113,12 +105,10 @@ function updateCPasswdValidation() {
         `<div class="grid-validationbox">
         <div id="passwdMatch">Passwords match</div>
         </div>`
-    document.getElementById('cpasswd').oninput = function (event) {
-        if (passwordsMatch(event.target.value, document.getElementById('passwd').value)) {
-            document.getElementById('passwdMatch').setAttribute("class", "green-text");
-        } else {
-            document.getElementById('passwdMatch').setAttribute("class", "red-text");
-        }
+    if (passwordsMatch(document.getElementById('cpasswd').value, document.getElementById('passwd').value)) {
+        document.getElementById('passwdMatch').setAttribute("class", "green-text");
+    } else {
+        document.getElementById('passwdMatch').setAttribute("class", "red-text");
     }
 }
 
