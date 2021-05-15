@@ -18,8 +18,7 @@ Please follow the instructions below and fill in the information requested when 
 
 # Build/Run Instructions
 
-## Link to Web Application
-[a link](http://localhost:3000)
+[Web Application Link](http://localhost:3000)
 
 ## Build Instructions
 1. Change directory to "/csc317-termproject-mkim797/application" by typing "cd csc317-termproject-mkim797/application" in the terminal.
