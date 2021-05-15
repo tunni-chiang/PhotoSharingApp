@@ -19,9 +19,7 @@ Please follow the instructions below and fill in the information requested when 
 # Build/Run Instructions
 
 ## Build Instructions
-1. From the application folder run "npm i express"
-2. steps here
+1. From the application folder run "npm run proj-init"; this should install express and import the database structure.
 
 ## Run Instructions
 1. From the application folder run "npm start"
-2. steps here 
