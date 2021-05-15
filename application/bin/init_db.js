@@ -1,28 +1,25 @@
-const mysql = require('mysql2');
-const { exec } = require('child_process');
+const Importer = require('../helpers/mysql-import'); // had to modify to allow for mySql2 authentication
 
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "photoapp",
-    password: "csc317",
-    database: "csc317db",
-    multipleStatements: true // this allow you to run multiple queries at once.
-});
+const host = 'localhost';
+const user = "photoapp";
+const password = "csc317";
+const database = "csc317db";
 
-// Where would the file be located?
-let dumpFile = '../config/csc317db.sql';
+const importer = new Importer({ host, user, password, database });
 
-let importTo = {
-    host: "localhost",
-    user: "photoapp",
-    password: "csc317",
-    database: "csc317db",
-    multipleStatements: true // this allow you to run multiple queries at once.
-}
+let dumpFile = 'config/csc317db.sql';
+var data;
 
-// Import the database.
-exec(`mysql -u${importTo.user} -p${importTo.password} -h${importTo.host} ${importTo.database} < ${dumpFile}`, (err, stdout, stderr) => {
-    if (err) { console.error(`exec error: ${err}`); return; }
-
-    console.log(`The import has finished.`);
-});
+importer.onProgress(progress=>{
+    var percent = Math.floor(progress.bytes_processed / progress.total_bytes * 10000) / 100;
+    console.log(`${percent}% Completed`);
+  });
+  
+  importer.import(dumpFile)
+  .then(()=>{
+    var files_imported = importer.getImported();
+    console.log(`${files_imported.length} SQL file(s) imported.`);
+  })
+  .catch(err=>{
+    console.error(err);
+  });
