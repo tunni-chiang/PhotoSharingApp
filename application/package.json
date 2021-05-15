@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "proj-init": "npm i express && node bin/init_db.js",
+    "proj-init": "npm install && node bin/init_db.js",
     "start": "node ./bin/www"
   },
   "dependencies": {
