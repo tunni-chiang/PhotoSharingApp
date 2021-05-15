@@ -64,7 +64,7 @@ function updatePasswdValidation() {
         <div id="containsUpperCaseLetter">Contains at least 1 upper case letter</div>
         <div id="oneNumber">Contains at least 1 number</div>
         <div id="oneSpecial">Contains at least 1 special character ( /*-+!@#$^& )</div>
-        </div>`
+        </div>`;
     let password = document.getElementById('passwd').value;
     if (document.getElementById('has8chars')
         && document.getElementById('containsUpperCaseLetter')
@@ -153,7 +153,7 @@ function passwordValid(pwd) {
     return containsUpperCaseLetter(pwd) && containsNumber(pwd) && containsSpecialChar(pwd) && validPasswordLength(pwd);
 }
 
-function validForm() {
+function validRegistrationForm() {
     if (!validUsername(document.getElementById('username').value)) {
         updateUserValidation();
     }
@@ -170,4 +170,12 @@ function validForm() {
         validEmail(document.getElementById('email').value) &&
         passwordValid(document.getElementById('passwd').value) &&
         passwordsMatch(document.getElementById('passwd').value, document.getElementById('cpasswd').value);
+}
+
+function validLoginForm() {
+    if (!validUsername(document.getElementById('username').value) || !passwordValid(document.getElementById('passwd').value)) {
+        addFlashFromFrontEnd('Username or Password invalid');
+        document.getElementById('flash-success').setAttribute('id', 'flash-error');
+    }
+    return validUsername(document.getElementById('username').value) && passwordValid(document.getElementById('passwd').value);
 }

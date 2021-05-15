@@ -18,9 +18,15 @@ Please follow the instructions below and fill in the information requested when 
 
 # Build/Run Instructions
 
+## Link to Web Application
+[a link](http://localhost:3000)
+
 ## Build Instructions
 1. Change directory to "/csc317-termproject-mkim797/application" by typing "cd csc317-termproject-mkim797/application" in the terminal.
-2. From the application folder run "npm run proj-init"; this should run "npm install" and import the database structure.
+2. From the application folder run "npm run proj-init"; this should run "npm install" and import the database structure/tables.
 
 ## Run Instructions
 1. From the application folder run "npm start"
+
+## Additional Notes
+

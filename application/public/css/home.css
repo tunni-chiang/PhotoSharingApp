@@ -6,24 +6,24 @@
     grid-auto-rows: 300px;
     gap: 0.5em;
     margin: 10px;
-}
-
-.grid-card {
+  }
+  
+  .grid-card {
     display: grid;
     opacity: 1;
     transition: opacity 0.5s;
-}
-
-.grid-card.fade {
+  }
+  
+  .grid-card.fade {
     opacity: 0;
-}
-
-.grid-card.nofade {
+  }
+  
+  .grid-card.nofade {
     opacity: 1;
-}
-
-.txt-ellipsis {
+  }
+  
+  .txt-ellipsis {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+  }  
