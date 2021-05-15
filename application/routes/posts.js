@@ -34,7 +34,7 @@ router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
         .then((noNulls) => {
             if (!noNulls) {
                 throw new PostError(
-                    "Post Failed: A data field is null",
+                    "Post Failed: A data field is null or undefined",
                     "/postimage",
                     200
                 );
