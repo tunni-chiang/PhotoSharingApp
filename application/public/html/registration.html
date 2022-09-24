@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Page</title>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome! This is the Registration Page :)</h1>
+      <nav>
+        <a href="./login.html" target="_blank">Login</a> |
+        <a href="./postimage.html" target="_blank">Post Image</a> |
+        <a href="./viewpost.html" target="_blank">View Post</a>
+      </nav>
+    </header>
+
+    <br />
+    <form action="/action_page.php">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required /><br /><br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br /><br />
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+      /><br /><br />
+      <label for="confirm_password">Confirm Password:</label>
+      <input
+        type="password"
+        id="confirm_password"
+        name="confirm_password"
+        required
+      /><br /><br />
+      <input
+        type="checkbox"
+        id="age_validation"
+        name="age_validation"
+        required
+      />
+      <label for="age_validation">I am 13+ years of age.</label>
+      <br /><br />
+      <input
+        type="checkbox"
+        id="age_validation"
+        name="age_validation"
+        required
+      />
+      <label for="age_validation"
+        >I understand and accept
+        <a
+          href="https://www.privacypolicies.com/blog/privacy-policies-vs-terms-conditions/"
+          target="_blank"
+          >TOS and Privacy rules</a
+        ></label
+      >
+      <br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
